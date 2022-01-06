@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
-#define Path_to_auth_DB "D:/auth.db"
+#define Path_to_auth_DB "E:/auth.db"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,6 +21,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui -> labelResult -> setText("Connected");
 
     }
+
+    //QPixmap pix(":/resources/img/background.jpg");
+    //int w = ui->label_picture->width();
+    //int h = ui->label_picture->height();
+    //ui->label_picture->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 }
 
 MainWindow::~MainWindow()
@@ -69,4 +75,3 @@ void MainWindow::on_loginButton_clicked()
       }
     }
 }
-

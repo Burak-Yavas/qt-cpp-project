@@ -7,6 +7,7 @@
 #include <QFileInfo>
 #include <QtCore>
 #include <QtGui>
+#include "detaildialog.h"
 
 
 namespace Ui {
@@ -22,14 +23,13 @@ public:
     ~SecDialog();
 
 private slots:
-    void on_pushButton_clicked();
+    //void on_pushButton_clicked();
 
     void on_pushButton_Select_clicked();
 
 private:
     Ui::SecDialog *ui;
     QSqlDatabase authDB;
-    //QSqlQueryModel* model;
     QSqlQueryModel* model;
 
 

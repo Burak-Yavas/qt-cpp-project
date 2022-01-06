@@ -1,17 +1,24 @@
-#include "secdialog.h"
-#include "ui_secdialog.h"
+#include "detaildialog.h"
+#include "ui_detaildialog.h"
 #include <QMessageBox>
 
 #define Path_to_auth_DB "E:/auth.db"
 
-SecDialog::SecDialog(QWidget *parent) :
+detailDialog::detailDialog(QString text, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SecDialog)
+    ui(new Ui::detailDialog)
 {
     ui->setupUi(this);
+
+    QString restaurantData = text;
+
+
     authDB = QSqlDatabase:: addDatabase("QSQLITE");
+
     authDB.setDatabaseName(Path_to_auth_DB);
+
     QFileInfo checkFile(Path_to_auth_DB);
+
     if(!checkFile.isFile())
     {
         return;
@@ -21,7 +28,6 @@ SecDialog::SecDialog(QWidget *parent) :
     {
         ui -> label_state -> setText("Connected");
     }
-    model = new QSqlQueryModel(this);
 
     if(authDB.open())
     {
@@ -32,9 +38,17 @@ SecDialog::SecDialog(QWidget *parent) :
         ui -> label_state -> setText("Not Connected");
         qDebug()<< "Connection Failed";
         return;
+
     }
+    model = new QSqlQueryModel(this);
+
+    ui -> label_restaurant -> setText(restaurantData);
+
     QSqlQuery* qry = new QSqlQuery(authDB);
-    qry -> prepare("SELECT userName FROM Auth");
+
+    qry -> prepare("SELECT password FROM Auth WHERE userName = :restaurant");
+    qry -> bindValue(":restaurant",restaurantData.toLocal8Bit().constData());
+
     if(qry -> exec())
     {
         ui -> label_state-> setText("Get successfully.");
@@ -49,20 +63,11 @@ SecDialog::SecDialog(QWidget *parent) :
 
 }
 
-SecDialog::~SecDialog()
+
+
+detailDialog::~detailDialog()
 {
     delete ui;
     qDebug() << "Closing the connection on db.";
     authDB.close();
 }
-
-
-void SecDialog::on_pushButton_Select_clicked()
-{
-    QModelIndex index = ui->listView->currentIndex();
-    QString itemText = index.data(Qt::DisplayRole).toString();
-    detailDialog *w = new detailDialog(itemText, this);
-    w-> show();
-    //QMessageBox::information(this,"Selected",itemText);
-}
-
