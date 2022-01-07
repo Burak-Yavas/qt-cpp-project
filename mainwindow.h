@@ -7,6 +7,8 @@
 #include "QDebug"
 #include <QtSql>
 #include <QFileInfo>
+#include <QTimer>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +22,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void fTime();
+
 private slots:
     void on_loginButton_clicked();
 
@@ -30,6 +35,7 @@ private:
     QSqlDatabase authDB;
     SecDialog * secDialog;
     RegisterDialog * regDialog;
+    QTimer *timer;
 
 
 };
