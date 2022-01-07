@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <QDateTime>
+#include <QDebug>
 #define Path_to_auth_DB "E:/auth.db"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -22,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     }
 
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(fTime()));
+    timer->start(1000);
+
     //QPixmap pix(":/resources/img/background.jpg");
     //int w = ui->label_picture->width();
     //int h = ui->label_picture->height();
@@ -35,6 +41,13 @@ MainWindow::~MainWindow()
     authDB.close();
 }
 
+void MainWindow::fTime()
+{
+    QTime time = QTime::currentTime();
+    QString time_txt = time.toString("hh : mm : ss");
+    ui->currentDateTime->setText(time_txt);
+
+}
 
 
 
@@ -50,6 +63,7 @@ void MainWindow::on_signUpButton_clicked()
 void MainWindow::on_loginButton_clicked()
 {
     QString username = ui-> lineEdit_user -> text();
+    //QString password = ui->lineEdit_password->setEchoMode(QLineEdit::Password);
     QString password = ui-> lineEdit_password -> text();
     if(authDB.open())
     {
