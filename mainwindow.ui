@@ -9,9 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>600</height>
+    <width>621</width>
+    <height>536</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
@@ -31,8 +37,8 @@
   <property name="styleSheet">
    <string notr="true">color: rgb(255, 255, 255);
 font: 9pt &quot;Segoe UI&quot;;
-background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 0), stop:0.189944 rgba(12, 19, 43, 255));
-</string>
+
+background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, y2:0.471318, stop:1 rgba(11, 11, 11, 248));</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -246,8 +252,12 @@ background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0
       <height>121</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/resources/img/avatarLogin.png);</string>
+     <string notr="true">image: url(:/resources/img/avatarLogin.png);
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));</string>
     </property>
     <property name="text">
      <string/>
@@ -264,7 +274,8 @@ background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0
     </property>
     <property name="styleSheet">
      <string notr="true">font: 8pt &quot;Malgun Gothic&quot;;
-text-decoration: underline;</string>
+text-decoration: underline;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(0, 0, 0, 0));</string>
     </property>
     <property name="lineWidth">
      <number>0</number>
@@ -279,13 +290,34 @@ text-decoration: underline;</string>
      <set>Qt::NoTextInteraction</set>
     </property>
    </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>621</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/resources/img/loginbackground.jpg);
+background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.586, y2:0.477273, stop:1 rgba(255, 255, 255, 46));</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_13</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>label_pic</zorder>
+   <zorder>currentDateTime</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>637</width>
+     <width>621</width>
      <height>21</height>
     </rect>
    </property>
