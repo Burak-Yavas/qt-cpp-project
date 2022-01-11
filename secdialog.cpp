@@ -2,7 +2,7 @@
 #include "ui_secdialog.h"
 #include <QMessageBox>
 
-#define Path_to_auth_DB "E:/auth.db"
+#define Path_to_auth_DB "D:/auth.db"
 
 SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
@@ -22,6 +22,7 @@ SecDialog::SecDialog(QWidget *parent) :
         ui -> label_state -> setText("Connected");
     }
     model = new QSqlQueryModel(this);
+    model2 = new QSqlQueryModel(this);
 
     if(authDB.open())
     {
@@ -33,20 +34,35 @@ SecDialog::SecDialog(QWidget *parent) :
         qDebug()<< "Connection Failed";
         return;
     }
+
+    //listView
+    ui -> listView->setFlow(QListView::Flow::LeftToRight);
     QSqlQuery* qry = new QSqlQuery(authDB);
-    qry -> prepare("SELECT userName FROM Auth");
-    if(qry -> exec())
+    if(qry -> exec("SELECT name FROM food_categories"))
     {
         ui -> label_state-> setText("Get successfully.");
         model -> setQuery(std::move(*qry));
         ui -> listView -> setModel(model);
-        authDB.close();
         qDebug() << (model -> rowCount());
     }else
     {
         ui -> label_state-> setText("Get unsuccessfull.");
     }
 
+
+    //tableView
+    QSqlQuery* qry2 = new QSqlQuery(authDB);
+    qry2 -> prepare("SELECT name, address, star FROM restaurants WHERE star > 7");
+    if(qry2 -> exec())
+    {
+        ui -> label_state-> setText("Get successfully.");
+        model2 -> setQuery(std::move(*qry2));
+        ui -> tableView -> setModel(model2);
+        qDebug() << (model2 -> rowCount());
+    }else
+    {
+        ui -> label_state-> setText("Get unsuccessfull.");
+    }
 }
 
 SecDialog::~SecDialog()
@@ -61,8 +77,23 @@ void SecDialog::on_pushButton_Select_clicked()
 {
     QModelIndex index = ui->listView->currentIndex();
     QString itemText = index.data(Qt::DisplayRole).toString();
+    qDebug() << (itemText);
     detailDialog *w = new detailDialog(itemText, this);
     w-> show();
-    //QMessageBox::information(this,"Selected",itemText);
+}
+
+
+void SecDialog::on_pushButton_clicked()
+{
+    allRestaurantsDialog *w = new allRestaurantsDialog(this);
+    w -> show();
+}
+
+
+void SecDialog::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    QString itemText = index.data(Qt::DisplayRole).toString();
+    menuDialog *w = new menuDialog(itemText, this);
+    w-> show();
 }
 

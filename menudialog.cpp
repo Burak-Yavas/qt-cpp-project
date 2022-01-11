@@ -1,28 +1,24 @@
-#include "detaildialog.h"
-#include "ui_detaildialog.h"
+#include "menudialog.h"
+#include "ui_menudialog.h"
 #include <QMessageBox>
 
 #define Path_to_auth_DB "D:/auth.db"
 
-detailDialog::detailDialog(QString text, QWidget *parent) :
+menuDialog::menuDialog(QString text, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::detailDialog)
+    ui(new Ui::menuDialog)
 {
     ui->setupUi(this);
 
-    QString categoryData = text;
-
+    QString restaurantData = text;
     authDB = QSqlDatabase:: addDatabase("QSQLITE");
-
     authDB.setDatabaseName(Path_to_auth_DB);
-
     QFileInfo checkFile(Path_to_auth_DB);
 
     if(!checkFile.isFile())
     {
         return;
         ui -> label_state -> setText("Not Connected");
-
     }else
     {
         ui -> label_state -> setText("Connected");
@@ -37,24 +33,21 @@ detailDialog::detailDialog(QString text, QWidget *parent) :
         ui -> label_state -> setText("Not Connected");
         qDebug()<< "Connection Failed";
         return;
-
     }
+
     model = new QSqlQueryModel(this);
-
-    ui -> label_restaurant -> setText(categoryData);
-
+    ui -> label -> setText(restaurantData);
     QSqlQuery* qry = new QSqlQuery(authDB);
 
     //tableView
-    qry -> prepare("SELECT name, address, star FROM restaurants WHERE category_id = :category");
-    qry -> bindValue(":category",categoryData.toLocal8Bit().constData());
+    qry -> prepare("SELECT name, detail, price FROM restaurant_menu WHERE restaurant = :restaurant");
+    qry -> bindValue(":restaurant",restaurantData.toLocal8Bit().constData());
 
     if(qry -> exec())
     {
         ui -> label_state-> setText("Get successfully.");
         model -> setQuery(std::move(*qry));
         ui -> tableView -> setModel(model);
-        //authDB.close();
         qDebug() << (model -> rowCount());
     }else
     {
@@ -62,19 +55,15 @@ detailDialog::detailDialog(QString text, QWidget *parent) :
     }
 }
 
-
-
-detailDialog::~detailDialog()
+menuDialog::~menuDialog()
 {
     delete ui;
     qDebug() << "Closing the connection on db.";
     authDB.close();
 }
 
-void detailDialog::on_tableView_doubleClicked(const QModelIndex &index)
+void menuDialog::on_pushButton_clicked()
 {
-    QString itemText = index.data(Qt::DisplayRole).toString();
-    menuDialog *w = new menuDialog(itemText, this);
-    w-> show();
+
 }
 

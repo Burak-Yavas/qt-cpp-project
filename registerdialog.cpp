@@ -1,7 +1,7 @@
 #include "registerdialog.h"
 #include "ui_registerdialog.h"
 #include <QMessageBox>
-#define Path_to_auth_DB "E:/auth.db"
+#define Path_to_auth_DB "D:/auth.db"
 
 RegisterDialog::RegisterDialog(QWidget *parent) :
     QDialog(parent),

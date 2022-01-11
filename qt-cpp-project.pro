@@ -9,21 +9,30 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    allrestaurantsdialog.cpp \
+    basketdialog.cpp \
     detaildialog.cpp \
     main.cpp \
     mainwindow.cpp \
+    menudialog.cpp \
     registerdialog.cpp \
     secdialog.cpp
 
 HEADERS += \
+    allrestaurantsdialog.h \
+    basketdialog.h \
     detaildialog.h \
     mainwindow.h \
+    menudialog.h \
     registerdialog.h \
     secdialog.h
 
 FORMS += \
+    allrestaurantsdialog.ui \
+    basketdialog.ui \
     detaildialog.ui \
     mainwindow.ui \
+    menudialog.ui \
     registerdialog.ui \
     secdialog.ui
 
