@@ -3,7 +3,7 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <QDebug>
-#define Path_to_auth_DB "E:/auth.db"
+#define Path_to_auth_DB "D:/auth.db"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

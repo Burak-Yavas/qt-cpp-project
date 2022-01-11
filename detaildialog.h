@@ -7,6 +7,8 @@
 #include <QFileInfo>
 #include <QtCore>
 #include <QtGui>
+#include "menudialog.h"
+
 
 namespace Ui {
 class detailDialog;
@@ -19,6 +21,9 @@ class detailDialog : public QDialog
 public:
     explicit detailDialog(QString text, QWidget *parent = nullptr);
     ~detailDialog();
+
+private slots:
+    void on_tableView_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::detailDialog *ui;
