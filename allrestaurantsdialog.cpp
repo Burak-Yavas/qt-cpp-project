@@ -1,7 +1,7 @@
 #include "allrestaurantsdialog.h"
 #include "ui_allrestaurantsdialog.h"
 
-#define Path_to_auth_DB "D:/auth.db"
+#define Path_to_auth_DB "E:/auth.db"
 
 allRestaurantsDialog::allRestaurantsDialog(QWidget *parent) :
     QDialog(parent),
@@ -43,6 +43,15 @@ allRestaurantsDialog::allRestaurantsDialog(QWidget *parent) :
         model -> setQuery(std::move(*qry2));
         ui -> tableView -> setModel(model);
         qDebug() << (model -> rowCount());
+        ui->tableView->setColumnWidth(0,200);
+        ui->tableView->setColumnWidth(1,300);
+        ui->tableView->setColumnWidth(2,40);
+        ui -> tableView->horizontalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->verticalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+
+
+
     }else
     {
         ui -> label_state-> setText("Get unsuccessfull.");

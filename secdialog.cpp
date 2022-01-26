@@ -2,7 +2,7 @@
 #include "ui_secdialog.h"
 #include <QMessageBox>
 
-#define Path_to_auth_DB "D:/auth.db"
+#define Path_to_auth_DB "E:/auth.db"
 
 SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
@@ -58,6 +58,12 @@ SecDialog::SecDialog(QWidget *parent) :
         ui -> label_state-> setText("Get successfully.");
         model2 -> setQuery(std::move(*qry2));
         ui -> tableView -> setModel(model2);
+        ui -> tableView->horizontalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->verticalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui->tableView->setColumnWidth(0,200);
+        ui->tableView->setColumnWidth(1,300);
+        ui->tableView->setColumnWidth(2,40);
         qDebug() << (model2 -> rowCount());
     }else
     {
