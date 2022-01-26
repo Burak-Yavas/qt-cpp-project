@@ -2,7 +2,7 @@
 #include "ui_detaildialog.h"
 #include <QMessageBox>
 
-#define Path_to_auth_DB "D:/auth.db"
+#define Path_to_auth_DB "E:/auth.db"
 
 detailDialog::detailDialog(QString text, QWidget *parent) :
     QDialog(parent),
@@ -54,6 +54,12 @@ detailDialog::detailDialog(QString text, QWidget *parent) :
         ui -> label_state-> setText("Get successfully.");
         model -> setQuery(std::move(*qry));
         ui -> tableView -> setModel(model);
+        ui -> tableView->horizontalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->verticalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui->tableView->setColumnWidth(0,200);
+        ui->tableView->setColumnWidth(1,300);
+        ui->tableView->setColumnWidth(2,40);
         //authDB.close();
         qDebug() << (model -> rowCount());
     }else

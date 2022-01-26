@@ -2,7 +2,7 @@
 #include "ui_menudialog.h"
 #include <QMessageBox>
 
-#define Path_to_auth_DB "D:/auth.db"
+#define Path_to_auth_DB "E:/auth.db"
 
 menuDialog::menuDialog(QString text, QWidget *parent) :
     QDialog(parent),
@@ -40,19 +40,25 @@ menuDialog::menuDialog(QString text, QWidget *parent) :
     QSqlQuery* qry = new QSqlQuery(authDB);
 
     //tableView
-    qry -> prepare("SELECT name, detail, price FROM restaurant_menu WHERE restaurant = :restaurant");
-    qry -> bindValue(":restaurant",restaurantData.toLocal8Bit().constData());
-
     if(qry -> exec())
-    {
-        ui -> label_state-> setText("Get successfully.");
-        model -> setQuery(std::move(*qry));
-        ui -> tableView -> setModel(model);
-        qDebug() << (model -> rowCount());
-    }else
-    {
-        ui -> label_state-> setText("Get unsuccessfull.");
-    }
+        {
+            ui -> label_state-> setText("Get successfully.");
+            model -> setQuery(std::move(*qry));
+            ui -> tableView -> setModel(model);
+            qDebug() << (model -> rowCount());
+        }else
+        {
+            ui -> label_state-> setText("Get unsuccessfull.");
+        }
+        //ui-> tableView->setColumnCount(3);
+        ui->tableView->setColumnWidth(0,200);
+        ui->tableView->setColumnWidth(1,300);
+        ui->tableView->setColumnWidth(2,40);
+        ui -> tableView->horizontalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->verticalHeader()->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+        ui -> tableView->setStyleSheet("QHeaderView::section { background-color: rgb(23, 11, 14) }");
+
+
 }
 
 menuDialog::~menuDialog()

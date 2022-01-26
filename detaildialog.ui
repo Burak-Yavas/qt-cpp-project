@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">color: rgb(255, 255, 255);
+font: 9pt &quot;Segoe UI&quot;;
+
+background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, y2:0.471318, stop:1 rgba(11, 11, 11, 248));</string>
+  </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
