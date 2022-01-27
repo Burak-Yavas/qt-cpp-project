@@ -103,3 +103,11 @@ void SecDialog::on_tableView_doubleClicked(const QModelIndex &index)
     w-> show();
 }
 
+
+void SecDialog::on_pushButton_2_clicked()
+{
+    basketDialog *w = new basketDialog(this);
+        w -> show();
+
+}
+
