@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>537</width>
-    <height>414</height>
+    <width>674</width>
+    <height>452</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,9 +23,9 @@ selection-background-color: rgb(74, 122, 147);</string>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>10</x>
      <y>80</y>
-     <width>411</width>
+     <width>651</width>
      <height>211</height>
     </rect>
    </property>
@@ -92,9 +92,9 @@ selection-background-color: rgb(74, 122, 147);</string>
   <widget class="QLabel" name="label_state">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>360</y>
-     <width>131</width>
+     <x>30</x>
+     <y>390</y>
+     <width>141</width>
      <height>20</height>
     </rect>
    </property>
@@ -105,7 +105,7 @@ selection-background-color: rgb(74, 122, 147);</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>520</x>
      <y>320</y>
      <width>93</width>
      <height>29</height>
@@ -118,10 +118,10 @@ selection-background-color: rgb(74, 122, 147);</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>519</width>
-     <height>396</height>
+     <x>-10</x>
+     <y>-80</y>
+     <width>681</width>
+     <height>621</height>
     </rect>
    </property>
    <property name="styleSheet">

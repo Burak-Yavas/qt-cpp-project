@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>593</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,10 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>100</y>
-     <width>261</width>
-     <height>151</height>
+     <x>10</x>
+     <y>120</y>
+     <width>571</width>
+     <height>291</height>
     </rect>
    </property>
   </widget>
@@ -45,10 +45,10 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>8</x>
+     <x>-42</x>
      <y>10</y>
-     <width>391</width>
-     <height>291</height>
+     <width>681</width>
+     <height>441</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -58,9 +58,23 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_state">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>420</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>state: </string>
+   </property>
+  </widget>
   <zorder>label_2</zorder>
   <zorder>tableView</zorder>
   <zorder>label</zorder>
+  <zorder>label_state</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
-    <height>387</height>
+    <width>412</width>
+    <height>392</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -163,10 +163,10 @@ background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:1
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>8</x>
-     <y>5</y>
-     <width>411</width>
-     <height>381</height>
+     <x>-2</x>
+     <y>-5</y>
+     <width>421</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="styleSheet">
