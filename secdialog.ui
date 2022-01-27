@@ -22,9 +22,9 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <widget class="QListView" name="listView">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>30</x>
      <y>70</y>
-     <width>371</width>
+     <width>511</width>
      <height>51</height>
     </rect>
    </property>
@@ -33,7 +33,7 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>450</y>
+     <y>430</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -45,10 +45,10 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <widget class="QPushButton" name="pushButton_Select">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>90</y>
+     <x>560</x>
+     <y>68</y>
      <width>93</width>
-     <height>29</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
@@ -87,8 +87,8 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>160</y>
+     <x>10</x>
+     <y>140</y>
      <width>141</width>
      <height>20</height>
     </rect>
@@ -100,24 +100,37 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>200</y>
-     <width>371</width>
-     <height>192</height>
+     <x>10</x>
+     <y>180</y>
+     <width>651</width>
+     <height>231</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>360</y>
+     <x>460</x>
+     <y>430</y>
      <width>131</width>
      <height>29</height>
     </rect>
    </property>
    <property name="text">
     <string>All Restaurants</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>10</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Basket</string>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -128,6 +141,7 @@ background-color: qlineargradient(spread:reflect, x1:0.095, y1:0.176, x2:0.391, 
   <zorder>label_3</zorder>
   <zorder>tableView</zorder>
   <zorder>pushButton</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
  <connections/>

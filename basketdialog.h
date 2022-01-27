@@ -9,6 +9,7 @@
 #include <QtCore>
 #include <QtGui>
 
+
 namespace Ui {
 class basketDialog;
 }
